@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>ACCESSO RISERVATO</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body { margin:0; background:#000; color:#0f0; font-family: monospace; padding:20px; }
+    #console { white-space: pre-wrap; font-size:1.2em; line-height:1.4; }
+    #info { display:none; margin-top:20px; text-align:center; }
+    .btn { display:inline-block; padding:10px 20px; background:#0f0; color:#000; text-decoration:none; margin-top:20px; font-weight:bold;}
+    .map { width:80%; max-width:400px; height:250px; margin:20px auto; border:2px solid #0f0; }
+  </style>
+</head>
+<body>
+  <div id="console"></div>
+  <div id="info">
+    <h2>💀 ACCESSO CONFERMATO</h2>
+    <p>17 luglio 2025 – Ore 20:45</p>
+    <p><strong>Borgo Pietrafitta – Masseria Medievale</strong></p>
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!..."
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+    <a class="btn" href="https://wa.me/39TUONUMERO?text=Accesso%20autorizzato%20-%20confermo%20la%20mia%20presenza">
+      Confermo su WhatsApp
+    </a>
+  </div>
+  <script>
+    const lines = [
+      "== DECODIFICA IN CORSO ==",
+      "Caricamento moduli...",
+      "Verifica identità...",
+      "Accesso riservato riconosciuto",
+      "Decriptazione posizione evento\n",
+      "Premi invio per continuare"
+    ];
+    const el = document.getElementById("console");
+    let i=0, char=0;
+    function type() {
+      if (i < lines.length) {
+        el.textContent += lines[i].slice(0, char);
+        char++;
+        if (char > lines[i].length) {
+          el.textContent += "\n";
+          i++; char = 0;
+        }
+        setTimeout(type, 50);
+      } else {
+        document.addEventListener("keyup", (e) => {
+          if (e.key === "Enter") document.getElementById("info").style.display="block";
+        });
+      }
+    }
+    type();
+  </script>
+</body>
+</html>
 
