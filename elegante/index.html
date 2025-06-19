@@ -23,8 +23,6 @@
       font-family: 'Playfair Display', serif;
       font-size: 2.2em;
       margin-bottom: 0.2em;
-      position: relative;
-      z-index: 10;
     }
 
     .subtitle {
@@ -32,15 +30,11 @@
       color: #ccc;
       margin-bottom: 1em;
       font-style: italic;
-      position: relative;
-      z-index: 10;
     }
 
     p {
       font-size: 1.1em;
       margin: 0.3em 0;
-      position: relative;
-      z-index: 10;
     }
 
     .map {
@@ -52,8 +46,6 @@
       overflow: hidden;
       border: 2px solid #fff;
       box-shadow: 0 0 25px #ffffff33;
-      position: relative;
-      z-index: 10;
     }
 
     iframe {
@@ -74,14 +66,62 @@
       margin: 10px;
       box-shadow: 0 0 15px #ffffff88;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      position: relative;
-      z-index: 10;
     }
 
     .btn:hover {
       transform: scale(1.05);
       box-shadow: 0 0 25px #fff;
     }
+
+    .btn.outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+      box-shadow: none;
+    }
+
+    .btn.outline:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.7em;
+      }
+      .btn {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .map {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Il mio diciottesimo</h1>
+  <div class="subtitle">Se non vieni, ci resto male (ma mangerò lo stesso).</div>
+
+  <p><strong>📅 Data:</strong> 17 luglio 2025</p>
+  <p><strong>🕗 Orario:</strong> 20:30</p>
+  <p><strong>📍 Luogo:</strong> Borgo Pietrafitta – Masseria Medievale</p>
+
+  <div class="map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.6396747957015!2d15.491408999999999!3d41.447039499999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1339decfde7d47b3%3A0x8791e849f3962d8a!2sBorgo%20Pietrafitta%20Masseria%20Medievale!5e0!3m2!1sit!2sit!4v1750328345361!5m2!1sit!2sit"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+
+  <a href="https://wa.me/393459276161?text=Confermo%20la%20mia%20presenza%20al%20diciottesimo%20🎉" class="btn">Confermo la mia presenza</a>
+  <a href="https://wa.me/393459276161?text=Mi%20dispiace%2C%20non%20posso%20venire%20al%20diciottesimo%20😔" class="btn outline">Non posso venire</a>
+
+</body>
+</html>
 
     .btn.outline {
       background: transparent;
