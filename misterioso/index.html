@@ -13,26 +13,35 @@
       margin: 0;
       padding: 30px 20px;
       user-select: none;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      align-items: center;
       overflow-x: hidden;
     }
     #console {
       white-space: pre-wrap;
       font-size: 1.3em;
-      min-height: 180px;
+      height: 180px;          /* Altezza fissa */
       line-height: 1.4;
       position: relative;
       max-width: 600px;
-      margin: 0 auto;
+      width: 100%;
+      overflow-y: auto;       /* Scroll se testo troppo lungo */
+      padding-right: 20px;
+      box-sizing: border-box;
+      border: 2px solid #00ff00cc;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ff00aa inset;
+      background-color: #001100dd;
+      margin-bottom: 20px;
     }
     /* Cursore lampeggiante */
     #console::after {
       content: '|';
       position: absolute;
-      right: 5px;
+      right: 10px;
+      bottom: 10px;
       animation: blink 1s infinite;
       color: #00ff00;
       font-weight: bold;
@@ -45,10 +54,12 @@
       text-align: center;
       color: #00ff00cc;
       font-size: 1em;
-      margin-top: 15px;
+      margin-top: 0;
       font-style: italic;
       display: none;
       user-select: none;
+      max-width: 600px;
+      width: 100%;
     }
     #info {
       display: none;
@@ -56,8 +67,7 @@
       text-align: center;
       color: #0ff;
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      width: 100%;
     }
     .map {
       margin: 25px auto 30px auto;
@@ -86,10 +96,16 @@
       box-shadow: 0 0 20px #00ff00cc;
       transition: box-shadow 0.3s ease, transform 0.2s ease;
       user-select: none;
+      max-width: 600px;
+      width: 100%;
+      box-sizing: border-box;
     }
     .btn:hover, .btn:focus {
       box-shadow: 0 0 30px #00ff00ff, 0 0 40px #00ff00ff inset;
       transform: scale(1.05);
+    }
+    h2 {
+      margin-bottom: 0.3em;
     }
   </style>
 </head>
@@ -157,4 +173,3 @@
   </script>
 </body>
 </html>
-
