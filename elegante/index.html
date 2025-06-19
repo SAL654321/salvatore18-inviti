@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>ACCESSO RISERVATO</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
-      background-color: black;
-      color: #00ff00;
-      font-family: "Courier New", monospace;
+      background-color: #000;
+      color: #0f0;
+      font-family: monospace, monospace;
       margin: 0;
       padding: 20px;
+      line-height: 1.4;
     }
     #console {
       white-space: pre-wrap;
       font-size: 1.2em;
-      line-height: 1.5;
+      min-height: 150px;
+      user-select: none;
     }
     #info {
       display: none;
       margin-top: 30px;
       text-align: center;
-      color: #00ffcc;
+      color: #0ff;
     }
     .btn {
       display: inline-block;
-      padding: 12px 24px;
-      background-color: #00ff00;
-      color: black;
+      padding: 14px 28px;
+      background-color: #0f0;
+      color: #000;
       font-weight: bold;
-      border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       text-decoration: none;
       margin-top: 20px;
-      font-size: 1em;
+      font-size: 1.1em;
+      box-shadow: 0 0 10px #0f0;
     }
     .map {
-      margin-top: 20px;
+      margin: 20px auto 0 auto;
       width: 100%;
-      max-width: 600px;
-      height: 450px;
-      border: 2px solid #00ff00;
-      border-radius: 5px;
+      max-width: 400px;
+      height: 300px;
+      border: 2px solid #0f0;
+      border-radius: 8px;
       overflow: hidden;
-      margin-left: auto;
-      margin-right: auto;
+      box-shadow: 0 0 10px #0f0;
     }
   </style>
 </head>
@@ -59,13 +60,16 @@
     <div class="map">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.6396747957015!2d15.491408999999999!3d41.447039499999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1339decfde7d47b3%3A0x8791e849f3962d8a!2sBorgo%20Pietrafitta%20Masseria%20Medievale!5e0!3m2!1sit!2sit!4v1750328345361!5m2!1sit!2sit"
-        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
-    <a class="btn" href="https://wa.me/393459276161?text=Accesso%20autorizzato%20-%20confermo%20la%20mia%20presenza%20al%20party">
-      Confermo su WhatsApp
-    </a>
+    <a
+      class="btn"
+      href="https://wa.me/393459276161?text=Accesso%20autorizzato%20-%20confermo%20la%20mia%20presenza%20al%20party"
+      target="_blank"
+      rel="noopener"
+      >Confermo su WhatsApp</a
+    >
   </div>
 
   <script>
@@ -75,10 +79,11 @@
       "Verifica identità...",
       "Accesso riservato riconosciuto",
       "Decriptazione posizione evento\n",
-      "Premi invio per continuare"
+      "Premi invio per continuare",
     ];
     const el = document.getElementById("console");
-    let i = 0, char = 0;
+    let i = 0,
+      char = 0;
     function type() {
       if (i < lines.length) {
         el.textContent += lines[i].slice(0, char);
@@ -93,7 +98,7 @@
         document.addEventListener("keyup", (e) => {
           if (e.key === "Enter") {
             document.getElementById("info").style.display = "block";
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
           }
         });
       }
@@ -102,4 +107,3 @@
   </script>
 </body>
 </html>
-
