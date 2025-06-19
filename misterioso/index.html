@@ -77,9 +77,7 @@
       "== DECODIFICA IN CORSO ==",
       "Caricamento moduli...",
       "Verifica identità...",
-      "Accesso riservato riconosciuto",
-      "Decriptazione posizione evento\n",
-      "Tocca lo schermo per continuare"
+      "Accesso riservato riconosciuto"
     ];
     const el = document.getElementById("console");
     let i = 0,
@@ -103,7 +101,6 @@
           },
           { once: true }
         );
-        // Per desktop click (opzionale)
         document.body.addEventListener(
           "click",
           () => {
