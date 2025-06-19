@@ -22,12 +22,12 @@
     #console {
       white-space: pre-wrap;
       font-size: 1.3em;
-      height: 180px;          /* Altezza fissa */
+      height: 180px;
       line-height: 1.4;
       position: relative;
       max-width: 600px;
       width: 100%;
-      overflow-y: auto;       /* Scroll se testo troppo lungo */
+      overflow-y: auto;
       padding-right: 20px;
       box-sizing: border-box;
       border: 2px solid #00ff00cc;
@@ -35,6 +35,16 @@
       box-shadow: 0 0 15px #00ff00aa inset;
       background-color: #001100dd;
       margin-bottom: 20px;
+      transition: opacity 0.6s ease;
+    }
+    #console.hidden {
+      opacity: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      overflow: hidden;
     }
     /* Cursore lampeggiante */
     #console::after {
@@ -60,6 +70,15 @@
       user-select: none;
       max-width: 600px;
       width: 100%;
+      transition: opacity 0.4s ease;
+    }
+    #tap-msg.visible {
+      display: block;
+      opacity: 1;
+    }
+    #tap-msg.hidden {
+      opacity: 0;
+      display: none;
     }
     #info {
       display: none;
@@ -68,6 +87,11 @@
       color: #0ff;
       max-width: 600px;
       width: 100%;
+      transition: opacity 0.6s ease;
+    }
+    #info.visible {
+      display: block;
+      opacity: 1;
     }
     .map {
       margin: 25px auto 30px auto;
@@ -145,6 +169,7 @@
     ];
     const el = document.getElementById("console");
     const tapMsg = document.getElementById("tap-msg");
+    const info = document.getElementById("info");
     let i = 0, char = 0;
     function type() {
       if (i < lines.length) {
@@ -157,11 +182,15 @@
         }
         setTimeout(type, 40);
       } else {
-        tapMsg.style.display = "block";
+        tapMsg.classList.add("visible");
         function showInfo() {
-          document.getElementById("info").style.display = "block";
+          // Nascondi digitazione e messaggio
+          el.classList.add("hidden");
+          tapMsg.classList.remove("visible");
+          tapMsg.classList.add("hidden");
+          // Mostra info
+          info.classList.add("visible");
           window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-          tapMsg.style.display = "none";
           document.body.removeEventListener("touchstart", showInfo);
           document.body.removeEventListener("click", showInfo);
         }
