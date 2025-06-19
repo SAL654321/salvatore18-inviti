@@ -22,7 +22,7 @@
     #console {
       white-space: pre-wrap;
       font-size: 1.3em;
-      height: 250px; /* altezza aumentata */
+      height: 250px;
       line-height: 1.4;
       position: relative;
       max-width: 600px;
@@ -46,7 +46,6 @@
       box-shadow: none;
       overflow: hidden;
     }
-    /* Cursore lampeggiante */
     #console::after {
       content: '|';
       position: absolute;
@@ -113,20 +112,27 @@
       color: #000;
       font-weight: 700;
       font-size: 1.1rem;
-      padding: 16px 40px;
-      border-radius: 35px;
+      padding: 14px 30px;
+      border-radius: 30px;
       text-decoration: none;
       display: inline-block;
-      box-shadow: 0 0 20px #00ff00cc;
-      transition: box-shadow 0.3s ease, transform 0.2s ease;
-      user-select: none;
-      max-width: 600px;
-      width: 100%;
-      box-sizing: border-box;
+      margin: 10px;
+      box-shadow: 0 0 15px #00ff00cc;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .btn:hover, .btn:focus {
-      box-shadow: 0 0 30px #00ff00ff, 0 0 40px #00ff00ff inset;
+    .btn:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 25px #00ff00ff;
+    }
+    .btn.outline {
+      background: transparent;
+      color: #00ff00;
+      border: 2px solid #00ff00;
+      box-shadow: none;
+    }
+    .btn.outline:hover {
+      background: #00ff00;
+      color: #000;
     }
     h2 {
       margin-bottom: 0.3em;
@@ -139,25 +145,15 @@
 
   <div id="info">
     <h2>✅ ACCESSO CONFERMATO</h2>
-    <p>17 luglio 2025 – Ore 20:45</p>
-    <p><strong>Borgo Pietrafitta – Masseria Medievale</strong></p>
+    <p>📅 17 luglio 2025 – 🕗 Ore 20:30/20:45</p>
+    <p>📍 Borgo Pietrafitta – Masseria Medievale</p>
 
     <div class="map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.6396747957015!2d15.491408999999999!3d41.447039499999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1339decfde7d47b3%3A0x8791e849f3962d8a!2sBorgo%20Pietrafitta%20Masseria%20Medievale!5e0!3m2!1sit!2sit!4v1750328345361!5m2!1sit!2sit"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.6396747957015!2d15.491408999999999!3d41.447039499999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1339decfde7d47b3%3A0x8791e849f3962d8a!2sBorgo%20Pietrafitta%20Masseria%20Medievale!5e0!3m2!1sit!2sit!4v1750328345361!5m2!1sit!2sit" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
-    <a
-      href="https://wa.me/393459276161?text=Accesso%20autorizzato%20-%20confermo%20la%20mia%20presenza%20al%20party"
-      class="btn"
-      target="_blank"
-      rel="noopener"
-      >Confermo su WhatsApp</a
-    >
+    <a href="https://wa.me/393459276161?text=Confermo%20la%20mia%20presenza%20al%20party%20🎉" class="btn" target="_blank">Confermo su WhatsApp</a>
+    <a href="https://wa.me/393459276161?text=Mi%20dispiace%2C%20non%20posso%20essere%20presente%20😔" class="btn outline" target="_blank">Non posso venire</a>
   </div>
 
   <script>
@@ -171,6 +167,7 @@
     const tapMsg = document.getElementById("tap-msg");
     const info = document.getElementById("info");
     let i = 0, char = 0;
+
     function type() {
       if (i < lines.length) {
         el.textContent += lines[i].slice(0, char);
@@ -180,7 +177,7 @@
           i++;
           char = 0;
         }
-        el.scrollTop = el.scrollHeight; // scroll automatico verso il basso
+        el.scrollTop = el.scrollHeight;
         setTimeout(type, 40);
       } else {
         tapMsg.classList.add("visible");
