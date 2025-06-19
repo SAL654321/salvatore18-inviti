@@ -22,7 +22,7 @@
     #console {
       white-space: pre-wrap;
       font-size: 1.3em;
-      height: 180px;
+      height: 250px; /* altezza aumentata */
       line-height: 1.4;
       position: relative;
       max-width: 600px;
@@ -180,15 +180,14 @@
           i++;
           char = 0;
         }
+        el.scrollTop = el.scrollHeight; // scroll automatico verso il basso
         setTimeout(type, 40);
       } else {
         tapMsg.classList.add("visible");
         function showInfo() {
-          // Nascondi digitazione e messaggio
           el.classList.add("hidden");
           tapMsg.classList.remove("visible");
           tapMsg.classList.add("hidden");
-          // Mostra info
           info.classList.add("visible");
           window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
           document.body.removeEventListener("touchstart", showInfo);
